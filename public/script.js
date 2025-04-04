@@ -1,10 +1,10 @@
 // Have both terminals set up, make sure to make the server public!
 // Add your base URL that will be used to build the paths
-const baseURL = "...";
+const baseURL = "https://studious-waddle-4jwj6wv7q75vhjgwx-3000.app.github.dev/";
 
 // Task 3: Debug Fetch Call to GET Route
 
-/*
+
 async function getAllMenuItems() {
   const res = await fetch(baseURL + 'menus');
   const data = await res.json();
@@ -12,7 +12,7 @@ async function getAllMenuItems() {
 }
 
 getAllMenuItems();
-*/
+
 
 // Once you verify it works, go back to index.js for Task 4
 

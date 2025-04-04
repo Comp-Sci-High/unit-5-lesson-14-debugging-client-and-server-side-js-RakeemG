@@ -1,48 +1,47 @@
 // Task 1: Debug Server Set up, Models, and Schema
-
+const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
 
-pp.use(express.json());
+app.use(express.json());
 
 app.use((req, res, next) => {
-    console.log(req.method + req.url)
-    next()
-})
+    console.log(req.method + " " + req.url);
+    next();
+});
 
-const menuSchema = new mongoose.schema({
-  name: { type: String, require: true },
+const menuSchema = new mongoose.Schema({
+  name: { type: String, required: true },
   cost: { type: Number },
   rating: { type: Number, default: 0 },
-  review: { type: string },
+  review: { type: String },
 });
 
-const Menu = mongoose.Model("Menu", menu, "Menus");
-
+const Menu = mongoose.model("Menu", menuSchema); 
 // Task 2: Debug GET route
 
-/*
-app.get("/menu", (req, res) => {
-  const allItems = await menu.find({});
+
+app.get("/menu", async (req, res) => {
+  const allItems = await Menu.find({});
   res.json(allItems);
 });
-*/
 
 // Go to script.js for Task 3, verify both work before moving on!
 
 
 // Task 4: Debug POST route
 
-/*
+
 app.post("/menu/new", async (req, res) => {
-  const newItem = await Menu({
+  const newItem = new Menu({
     name: req.body.name,
     cost: req.body.cost,
     rating: req.body.rating,
     review: req.body.review,
-  })
+  });
+  await newItem.save();
   res.json(newItem);
 });
-*/
 
 // Go to script.js for Task 5, verify both work before moving on!
 
